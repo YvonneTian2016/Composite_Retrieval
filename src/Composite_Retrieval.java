@@ -99,8 +99,8 @@ public class Composite_Retrieval {
 
     /* score */
     public double score(ArrayList<Items> s) {
-      //  double score_str = topic.getHighestRel(s).getRelevance();
-        double score = 0;
+
+        double score = topic.getHighestRel(s).getRelevance();
         return score;
     }
 
