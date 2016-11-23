@@ -21,7 +21,7 @@ public class Main {
         File_Read file = new File_Read();
         String fileName = "src/"+T+".txt";
         ArrayList<Items> items = file.Read_File(fileName);
-        System.out.println(items);
+        System.out.println(items.get(0).getName());
 
         Composite_Retrieval C_R = new Composite_Retrieval(items,Cur_T);
         System.out.println("Please define the threshold on number of items in a bundle *beta*:");
@@ -36,6 +36,9 @@ public class Main {
         System.out.println("Searching Topic "+T+"... ...\n");
 
         Search_R = C_R.Composite_Retrieval(items,c,beta,mu,k);
+
+
+
 
 
 

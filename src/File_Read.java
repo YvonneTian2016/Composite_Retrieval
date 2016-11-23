@@ -62,14 +62,6 @@ public class File_Read {
     }
 
 
-
-
-
-
-
-
-
-
 /*
     public static void readFileByLines(String fileName) {
         File file = new File(fileName);

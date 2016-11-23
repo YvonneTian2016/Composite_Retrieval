@@ -15,12 +15,14 @@ public class Topic {
     }
 
     public Items getHighestRel(ArrayList<Items> allItems){
-        int max = 0, idx= 0, i = 0;
+        int max = 0, idx= 1, i = 1;
+        System.out.println("***"+idx+"***\n");
            for(Items I: allItems)
            {
-                 if(I.getRelevance() > max)
+                 if(I.getRelevance() >= max)
                  {
                      idx = i;
+                     System.out.println("***"+idx+"***\n");
                      max = I.getRelevance();
                  }
                i++;
