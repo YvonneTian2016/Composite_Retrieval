@@ -7,12 +7,10 @@ import java.util.ArrayList;
 
 public class Topic {
 
-    private ArrayList<Items> allItems;
     private int entities; //subTopic of Topic identified by integer(mimic data)
 
     public Topic(){}
-    public Topic(int entities, ArrayList<Items> allItems){
-        this.allItems = allItems;
+    public Topic(int entities){
         this.entities = entities;
     }
 
@@ -52,8 +50,8 @@ public class Topic {
             for(ArrayList<Items> B: Cur_C){
                 for(Items I: B)
                 {
-                      int[] freq = I.getDocument();
-                     aboutness+=freq[entities];
+                      int freq = I.getDocument();   //freq should be an array actually
+                     aboutness+=freq;
                 }
                 if(aboutness >= max_about){
                      max_about = aboutness;

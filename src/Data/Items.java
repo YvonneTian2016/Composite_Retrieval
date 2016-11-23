@@ -7,35 +7,20 @@ import java.util.ArrayList;
 public class Items {
 
     private String name;
-    private ArrayList<String> tags;
     private String vertical;
-    private int relevance; //Topic relevance
-    private double[] similarities;
-    private int[] document; //frequency in document
+    private int relevance; //Topic relevance  1-10
+    private int document; //frequency in document
 
-    public Items(String name,ArrayList<String> tags, String vertical, int relevance, double[] similarities, int[] document) {
+    public Items(){}
+    public Items(String name,ArrayList<String> tags, String vertical, int relevance, int document) {
         this.name = name;
-        this.tags = tags;
         this.vertical = vertical;
         this.relevance = relevance;
-        this.similarities = similarities;
         this.document = document;
     }
 
-
-
     public String getName() {
         return name;
-    }
-
-    public ArrayList<String> getTags() { return tags; }
-
-    public String getTagsString() {
-        String tagsString = "";
-        for (String tag : tags) {
-            tagsString += (tag + ";");
-        }
-        return tagsString;
     }
 
     public String getVertical() {
@@ -46,18 +31,23 @@ public class Items {
         return relevance;
     }
 
-    public double[] getSimilarities() { return similarities; }
+    public int getDocument(){return document;}
 
-    public String getSimilaritiesString() {
-        String similaritiesString = "";
-        for (double sim : similarities ) {
-            similaritiesString += (sim + "; ");
-        }
-        return similaritiesString;
+
+    public void SetName(String name) {
+        this.name = name;
     }
 
-    public void setSimilarities(double[] similarities) { this.similarities = similarities; }
+    public void SetVertical(String vertical) {
+        this.vertical = vertical;
+    }
 
-    public int[] getDocument(){return document;}
+    public void SetRelevance(int relevance) {
+        this.relevance = relevance;
+    }
+
+    public void SetDocument(int document){
+        this.document=document;
+    }
 
 }

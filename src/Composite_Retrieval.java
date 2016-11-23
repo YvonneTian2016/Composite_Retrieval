@@ -16,7 +16,7 @@ public class Composite_Retrieval {
     }
 
     /*Composite_Retrieval*/
-    public ArrayList<ArrayList<Items>> Composite_Retrieval(ArrayList<Items> allItems, int c, double beta, double mu, int k, double gamma){
+    public ArrayList<ArrayList<Items>> Composite_Retrieval(ArrayList<Items> allItems, int c, double beta, double mu, int k){
         //Cand <--
         ArrayList<ArrayList<Items>> Cand = Produce_Bundles(allItems,beta,mu,c);
 
@@ -99,7 +99,8 @@ public class Composite_Retrieval {
 
     /* score */
     public double score(ArrayList<Items> s) {
-        double score = topic.getHighestRel(s).getRelevance();
+      //  double score_str = topic.getHighestRel(s).getRelevance();
+        double score = 0;
         return score;
     }
 
