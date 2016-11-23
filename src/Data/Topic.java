@@ -5,12 +5,12 @@ package Data;
  */
 import java.util.ArrayList;
 
-public class Relevance {
+public class Topic {
 
     private ArrayList<Items> allItems;
 
-    public Relevance(){}
-    public Relevance(ArrayList<Items> allItems){
+    public Topic(){}
+    public Topic(ArrayList<Items> allItems){
         this.allItems = allItems;
     }
 

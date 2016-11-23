@@ -4,15 +4,15 @@
 
 import java.util.ArrayList;
 import Data.Items;
-import Data.Relevance;
+import Data.Topic;
 
 public class Composite_Retrieval {
     private ArrayList<Items> allItems;
-    private Relevance relevance;
+    private Topic topic;
 
-    public Composite_Retrieval(ArrayList<Items> allItems, Relevance relevance){
+    public Composite_Retrieval(ArrayList<Items> allItems, Topic topic){
         this.allItems=allItems;
-        this.relevance = relevance;
+        this.topic = topic;
     }
 
     /*Composite_Retrieval*/
@@ -41,7 +41,7 @@ public class Composite_Retrieval {
 
             Temp_allItems.removeAll(new ArrayList<Items>(Pivots));
 
-            Items w = relevance.getHighestRel(Temp_allItems);
+            Items w = topic.getHighestRel(Temp_allItems);
             //I = I \ w
             I.remove(w);
             // S = Pick_Bundle
@@ -77,7 +77,7 @@ public class Composite_Retrieval {
         while(!finish && active.size() != 0)
         {
             //i = argmax{i ∈ active} s(i,w)
-            Items i = relevance.getClosetItem(w, active);
+            Items i = topic.getClosetItem(w, active);
             // if function f:
             if(function(i.getVertical(), Vertical)){
                 ArrayList<Items> Temp_s = new ArrayList<Items>(s);
@@ -99,7 +99,7 @@ public class Composite_Retrieval {
 
     /* score */
     public double score(ArrayList<Items> s) {
-        double score = relevance.getHighestRel(s).getRelevance();
+        double score = topic.getHighestRel(s).getRelevance();
         return score;
     }
 
