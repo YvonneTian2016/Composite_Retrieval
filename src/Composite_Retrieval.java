@@ -19,9 +19,9 @@ public class Composite_Retrieval {
     public ArrayList<ArrayList<Items>> Composite_Retrieval(ArrayList<Items> allItems, int c, double beta, double mu, int k, double gamma){
         //Cand <--
         ArrayList<ArrayList<Items>> Cand = Produce_Bundles(allItems,beta,mu,c);
-        return Cand;
+
         //Given the number of required bundles, k, a set Cand of candidate bundles, and a similarity function between items;
-         //return Choose_Bundles(k,Cand);
+        return Choose_Bundles(k,Cand);
 
 
     }
@@ -133,5 +133,32 @@ public class Composite_Retrieval {
             return true;
         }
     }
+
+
+    /*Choose Bundles  De Diversification*/
+    public ArrayList<ArrayList<Items>> Choose_Bundles(int k,ArrayList<ArrayList<Items>> Cand){
+
+        //Omiga = empty collection
+        ArrayList<ArrayList<Items>> Omiga = new ArrayList<ArrayList<Items>>();
+        //choosed bundle:u
+        ArrayList<Items> u = new ArrayList<Items>();
+        // Current Cand
+        ArrayList<ArrayList<Items>> Cur_C = new ArrayList<ArrayList<Items>>(Cand);
+
+        //while Cur_C != ∅ && |Omiga| < k
+        while(!Cur_C.isEmpty() && Omiga.size() < k) {
+            //caculate the aboutness(S,e) pick the most relevant one
+            u =  topic.getAboutnessBundle(Cur_C);
+            //Cand = Cand \ u
+           Cur_C.remove(u);
+            //Omiga = Omiga + u
+            Omiga.add(u);
+        }
+        return Omiga;
+
+    }
+
+
+
 
 }

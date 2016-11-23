@@ -11,14 +11,15 @@ public class Items {
     private String vertical;
     private int relevance; //Topic relevance
     private double[] similarities;
-    private int[] distances;
+    private int[] document; //frequency in document
 
-    public Items(String name,ArrayList<String> tags, String vertical, int relevance, double[] similarities) {
+    public Items(String name,ArrayList<String> tags, String vertical, int relevance, double[] similarities, int[] document) {
         this.name = name;
         this.tags = tags;
         this.vertical = vertical;
         this.relevance = relevance;
         this.similarities = similarities;
+        this.document = document;
     }
 
 
@@ -56,5 +57,7 @@ public class Items {
     }
 
     public void setSimilarities(double[] similarities) { this.similarities = similarities; }
+
+    public int[] getDocument(){return document;}
 
 }

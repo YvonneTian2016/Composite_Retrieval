@@ -8,10 +8,12 @@ import java.util.ArrayList;
 public class Topic {
 
     private ArrayList<Items> allItems;
+    private int entities; //subTopic of Topic identified by integer(mimic data)
 
     public Topic(){}
-    public Topic(ArrayList<Items> allItems){
+    public Topic(int entities, ArrayList<Items> allItems){
         this.allItems = allItems;
+        this.entities = entities;
     }
 
     public Items getHighestRel(ArrayList<Items> allItems){
@@ -40,6 +42,28 @@ public class Topic {
         }
       return active.get(idx);
     }
+
+    public ArrayList<Items> getAboutnessBundle(ArrayList<ArrayList<Items>> Cand){
+        int aboutness = 0, document = 0, max_about = 0;
+        ArrayList<Items> Cur_Bundle = new ArrayList<Items>();
+        ArrayList<ArrayList<Items>> Cur_C = new ArrayList<ArrayList<Items>>(Cand);
+        ArrayList<Items> MaxAboutB = new ArrayList<Items>();
+
+            for(ArrayList<Items> B: Cur_C){
+                for(Items I: B)
+                {
+                      int[] freq = I.getDocument();
+                     aboutness+=freq[entities];
+                }
+                if(aboutness >= max_about){
+                     max_about = aboutness;
+                     MaxAboutB = B;
+                }
+            }
+
+        return MaxAboutB;
+    }
+
 
 
 }
